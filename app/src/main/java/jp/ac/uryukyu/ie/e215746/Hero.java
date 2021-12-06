@@ -9,10 +9,10 @@ package jp.ac.uryukyu.ie.e215746;
  * Created by tnal on 2016/11/13.
  */
 public class Hero {
-    public String name;
-    public int hitPoint;
-    public int attack;
-    public boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
 
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
@@ -35,7 +35,7 @@ public class Hero {
      */
     public void attack(Enemy e){
         int damage = (int)(Math.random() * attack);
-        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, e.name, damage);
+        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, e.getName(), damage);
         e.wounded(damage);
     }
 
@@ -50,5 +50,61 @@ public class Hero {
             dead = true;
             System.out.printf("勇者%sは道半ばで力尽きてしまった。\n", name);
         }
+    }
+    /**
+     * 名前を取得するゲッター
+     * @return　Heroの名前
+     */
+    public String getName(){
+        return name;
+    }
+    /**
+     * HPを取得するゲッター
+     * @return　HeroのHP
+     */
+    public int getHitPoint(){
+        return hitPoint;
+    }
+    /**
+     * 攻撃値を取得するゲッター
+     * @return　Heroの攻撃値
+     */
+    public int getAttack(){
+        return attack;
+    }
+    /**
+     * 生存状態を取得するゲッター
+     * @return　生存状態
+     */
+    public boolean getDead(){
+        return dead;
+    }
+    /**
+     * 名前を設定するセッター
+     * @param name 設定したい名前
+     */
+    public void setName(String name){
+        this.name = name;
+    }
+    /**
+     * HPを設定するセッター
+     * @param hitPoint 設定したいHP
+     */
+    public void setHitPoint(int hitPoint){
+        this.hitPoint = hitPoint;
+    }
+    /**
+     * 攻撃値を設定するセッター
+     * @param attack　設定したい攻撃値
+     */
+    public void setAttack(int attack){
+        this.attack = attack;
+    }
+    /**
+     * 生存状態を設定するセッター
+     * @param dead 設定したい生存状態
+     */
+    public void setDead(boolean dead){
+        this.dead = dead;
     }
 }
